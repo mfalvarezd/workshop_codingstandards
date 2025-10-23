@@ -1,10 +1,10 @@
 class student:
-    def __init__(s, id, name):
-        s.id = id
-        s.name = name
-        s.gradez = []
-        s.isPassed = "NO"
-        s.honor = "?"
+    def __init__(self, id, name):
+        self.id = id
+        self.name = name
+        self.grades = []
+        self.is_passed = "NO"
+        self.honor = "?"
 
     def addGrades(self, g):
         self.gradez.append(g)
