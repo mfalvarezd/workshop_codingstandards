@@ -7,13 +7,13 @@ class student:
         self.honor = "?"
         self.letter ="?"
 
-    def addGrades(self, grade):
+    def add_grades(self, grade):
         if(grade>0 and grade <= 100):
             self.grades.append(grade)
         else:
             print("Can´t add negative grades")
 
-    def calcAverage(self):
+    def calc_average(self):
         t = 0
         num_grades = len(self.grades)
         if num_grades == 0:
@@ -40,9 +40,9 @@ class student:
 
 def startrun():
     a = student("x", "fer")
-    a.addGrades(100)
+    a.add_grades(100)
    # a.addGrades("Fifty")  # broken
-    a.calcAverage()
+    a.calc_average()
     a.checkHonor()
     #a.deleteGrade(5)  # IndexError
     a.report()
