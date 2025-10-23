@@ -15,12 +15,13 @@ class student:
 
     def calcAverage(self):
         t = 0
+        num_grades = len(self.grades)
+        if num_grades == 0:
+            return 0
         for x in self.grades:
             t += x
-        len_grades = len(self.grades)
-        if (len_grades)>0:
-            return t/len_grades
-        return 0
+        avg = t / num_grades
+        return avg
 
 
     def checkHonor(self):
