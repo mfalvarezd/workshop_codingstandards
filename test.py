@@ -5,8 +5,8 @@ class Student:
         self.grades = []
         self.is_passed = "NO"
         self.honor = "?"
-        self.letter = "?"     
-    
+        self.letter = "?"
+
     def add_grades(self, grade):
         if (grade > 0 and grade <= 100):
             self.grades.append(grade)
@@ -22,10 +22,10 @@ class Student:
             return "D"
         else:
             return "F"
-    
+
     def passed_validation(self, grade):
         return "Passed" if grade >= 60 else "Failed"
- 
+
     def calc_average(self):
         t = 0
         num_grades = len(self.grades)
@@ -37,13 +37,17 @@ class Student:
         new_letter = self.grade_to_letter(avg)
         self.letter = new_letter
         self.is_passed = self.passed_validation(avg)
+        return avg
 
     def check_honor(self):
-        if self.calcAverage() > 90:
+        if self.calc_average() > 90:
             self.honor = "yep"
 
     def delete_grade(self, index):
-        del self.grades[index]
+        if index > len(self.grades):
+            print("Grade not found")
+        else:
+            del self.grades[index]
 
     def report(self):  # broken format
         print("ID: " + self.id)
@@ -53,12 +57,12 @@ class Student:
 
 
 def startrun():
-    a = student("x", "fer")
+    a = Student("x", "fer")
     a.add_grades(100)
-    a.add_grades(50)  
+    a.add_grades(50)
     a.calc_average()
     a.check_honor()
-    a.delete_grade(5)  
+    a.delete_grade(5)
     a.report()
 
 
