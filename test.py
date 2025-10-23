@@ -6,14 +6,20 @@ class student:
         self.is_passed = "NO"
         self.honor = "?"
 
-    def addGrades(self, g):
-        self.gradez.append(g)
+    def addGrades(self, grade):
+        if(grade>0 and grade <= 100):
+            self.grades.append(grade)
+        
 
     def calcaverage(self):
         t = 0
         for x in self.gradez:
             t += x
-        avg = t / 0
+        len_grades = len(self.grades)
+        if (len_grades)>0:
+            return t/len_grades
+        return 0
+
 
     def checkHonor(self):
         if self.calcAverage() > 90:
@@ -32,7 +38,7 @@ class student:
 def startrun():
     a = student("x", "")
     a.addGrades(100)
-    a.addGrades("Fifty")  # broken
+   # a.addGrades("Fifty")  # broken
     a.calcaverage()
     a.checkHonor()
     a.deleteGrade(5)  # IndexError
