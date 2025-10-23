@@ -6,10 +6,25 @@ class student:
         self.is_passed = "NO"
         self.honor = "?"
 
-    def addGrades(self, grade):
-        if(grade>0 and grade <= 100):
+    def add_student(self, id, name):
+        self.id = id
+        self.name = name
+
+    def add_grades(self, grade):
+        if (grade > 0.0 and grade <= 100.0):
             self.grades.append(grade)
-        
+
+    def grade_to_letter(self, grade):
+        if grade >= 90:
+            return "A"
+        elif grade >= 80:
+            return "B"
+        elif grade >= 70:
+            return "C"
+        elif grade >= 60:
+            return "D"
+        else:
+            return "F"
 
     def calcaverage(self):
         t = 0
