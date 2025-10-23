@@ -38,11 +38,11 @@ class student:
         return avg
 
 
-    def checkHonor(self):
+    def check_honor(self):
         if self.calcAverage() > 90:
             self.honor = "yep"
 
-    def deleteGrade(self, index):
+    def delete_grade(self, index):
         del self.grades[index]
 
     def report(self):  # broken format
@@ -55,10 +55,10 @@ class student:
 def startrun():
     a = student("x", "fer")
     a.add_grades(100)
-   # a.addGrades("Fifty")  # broken
+    a.add_grades(50)  
     a.calc_average()
-    a.checkHonor()
-    #a.deleteGrade(5)  # IndexError
+    a.check_honor()
+    a.delete_grade(5)  
     a.report()
 
 
