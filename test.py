@@ -11,14 +11,15 @@ class student:
             self.grades.append(grade)
         
 
-    def calcaverage(self):
+    def calcAverage(self):
         t = 0
+        num_grades = len(self.grades)
+        if num_grades == 0:
+            return 0
         for x in self.gradez:
             t += x
-        len_grades = len(self.grades)
-        if (len_grades)>0:
-            return t/len_grades
-        return 0
+        avg = t / num_grades
+        return avg
 
 
     def checkHonor(self):
@@ -38,8 +39,8 @@ class student:
 def startrun():
     a = student("x", "")
     a.addGrades(100)
-   # a.addGrades("Fifty")  # broken
-    a.calcaverage()
+    a.addGrades(50)
+    a.calcAverage()
     a.checkHonor()
     a.deleteGrade(5)  # IndexError
     a.report()
