@@ -5,14 +5,10 @@ class student:
         self.grades = []
         self.is_passed = "NO"
         self.honor = "?"
-        self.letter ="?"
-
-    def add_student(self, id, name):
-        self.id = id
-        self.name = name
-
+        self.letter = "?"     
+    
     def add_grades(self, grade):
-        if (grade > 0.0 and grade <= 100.0):
+        if (grade > 0 and grade <= 100):
             self.grades.append(grade)
 
     def grade_to_letter(self, grade):
@@ -26,7 +22,10 @@ class student:
             return "D"
         else:
             return "F"
-
+    
+    def passed_validation(self, grade):
+        return "Passed" if grade >= 60 else "Failed"
+ 
     def calc_average(self):
         t = 0
         num_grades = len(self.grades)
@@ -35,8 +34,9 @@ class student:
         for x in self.grades:
             t += x
         avg = t / num_grades
-        return avg
-
+        new_letter = self.grade_to_letter(avg)
+        self.letter = new_letter
+        self.is_passed = self.passed_validation(avg)
 
     def check_honor(self):
         if self.calcAverage() > 90:
